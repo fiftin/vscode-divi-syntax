@@ -1,0 +1,30 @@
+{
+  "name": "divi-shortcodes-syntax",
+  "displayName": "Divi Shortcodes Syntax",
+  "description": "Syntax highlighting for Divi builder shortcodes in WordPress templates.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "divi-shortcodes",
+        "aliases": ["Divi Shortcodes", "Divi"],
+        "extensions": [".divi", ".etpb"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "divi-shortcodes",
+        "scopeName": "text.divi",
+        "path": "./syntaxes/divi.tmLanguage.json"
+      }
+    ]
+  }
+}
