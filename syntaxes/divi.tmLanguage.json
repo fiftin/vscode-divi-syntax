@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Divi Shortcodes",
+  "scopeName": "text.divi",
+  "patterns": [
+    { "include": "#divi-tag" },
+    { "include": "#html" }
+  ],
+  "repository": {
+    "divi-tag": {
+      "begin": "\\[(?:\\/?)(?=et_pb_)",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.tag.begin.divi" }
+      },
+      "end": "\\]",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.end.divi" }
+      },
+      "name": "meta.tag.divi",
+      "patterns": [
+        {
+          "match": "\\/",
+          "name": "punctuation.definition.tag.divi"
+        },
+        {
+          "match": "et_pb_[a-zA-Z0-9_]+",
+          "name": "entity.name.tag.divi"
+        },
+        {
+          "include": "#attributes"
+        }
+      ]
+    },
+    "attributes": {
+      "patterns": [
+        {
+          "name": "entity.other.attribute-name.divi",
+          "match": "[a-zA-Z0-9_:-]+(?=\\=)"
+        },
+        {
+          "name": "meta.attribute.value.divi",
+          "match": "(=)(\"[^\"]*\")",
+          "captures": {
+            "1": { "name": "keyword.operator.assignment.divi" },
+            "2": { "name": "string.quoted.double.divi" }
+          }
+        },
+        {
+          "name": "meta.attribute.value.divi",
+          "match": "(=)('[^']*')",
+          "captures": {
+            "1": { "name": "keyword.operator.assignment.divi" },
+            "2": { "name": "string.quoted.single.divi" }
+          }
+        }
+      ]
+    },
+    "html": {
+      "patterns": [
+        {
+          "match": "</?[a-zA-Z][^>]*>",
+          "name": "meta.tag.inline.any.html"
+        }
+      ]
+    }
+  }
+}
